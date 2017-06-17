@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Test2</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var iterationCount = 0;
+        function Iterate() {
+            iterationCount++;
+            document.getElementById("lbl2").innerHTML = iterationCount.toString();
+        }
+    </script>
+    <p style="font-weight: bold">Lorem ipsum blah blah whatever</p>
+    <input type="text" id="txt1" />
+    <input type="button" value="Parrot!" onclick="document.getElementById('lbl1').innerHTML = document.getElementById('txt1').value" />
+    <span id="lbl1"></span>
+    <br />
+    <br />
+    <table id="tblClickButtons">
+        <tr>
+            <td><input type="button" value="Iterate" onclick="Iterate()" /></td>
+            <td><input type="button" value="Iterate" onclick="Iterate()" /></td>
+            <td><input type="button" value="Iterate" onclick="Iterate()" /></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="Iterate" onclick="Iterate()" /></td>
+            <td><input type="button" value="Iterate" onclick="Iterate()" /></td>
+            <td><input type="button" value="Iterate" onclick="Iterate()" /></td>
+        </tr>
+        <tr>
+            <td><input type="button" value="Iterate" onclick="Iterate()" /></td>
+            <td><input type="button" value="Iterate" onclick="Iterate()" /></td>
+            <td><input type="button" value="Iterate" onclick="Iterate()" /></td>
+        </tr>
+    </table>
+    
+    <span id="lbl2"></span>
+</body>
+</html>

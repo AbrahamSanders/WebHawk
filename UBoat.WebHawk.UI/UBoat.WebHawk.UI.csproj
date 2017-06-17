@@ -1,0 +1,636 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E95EBCBE-4019-4B32-AD2A-DC9011D95F73}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UBoat.WebHawk.UI</RootNamespace>
+    <AssemblyName>WebHawk</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Icon1.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.3.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.3.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="ObjectListView, Version=2.9.1.1072, Culture=neutral, PublicKeyToken=b1c5bf581481bcd4, processorArchitecture=MSIL">
+      <HintPath>..\packages\ObjectListView.Official.2.9.1\lib\net20\ObjectListView.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity.Design" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ElementIdentifierEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ElementIdentifierEditor.Designer.cs">
+      <DependentUpon>ElementIdentifierEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Extensions.cs" />
+    <Compile Include="frmCloneSequence.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCloneSequence.Designer.cs">
+      <DependentUpon>frmCloneSequence.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Scheduler\DailyRepeatableScheduler.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Scheduler\DailyRepeatableScheduler.Designer.cs">
+      <DependentUpon>DailyRepeatableScheduler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Scheduler\DailyScheduler.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Scheduler\DailyScheduler.Designer.cs">
+      <DependentUpon>DailyScheduler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmScheduledTaskProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmScheduledTaskProperties.Designer.cs">
+      <DependentUpon>frmScheduledTaskProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSequenceProperties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSequenceProperties.Designer.cs">
+      <DependentUpon>frmSequenceProperties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmElementIdentifierEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmElementIdentifierEditor.Designer.cs">
+      <DependentUpon>frmElementIdentifierEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSettings.Designer.cs">
+      <DependentUpon>frmSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStepEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStepEditor.Designer.cs">
+      <DependentUpon>frmStepEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Scheduler\HourlyScheduler.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Scheduler\HourlyScheduler.Designer.cs">
+      <DependentUpon>HourlyScheduler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Scheduler\MonthlyScheduler.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Scheduler\MonthlyScheduler.Designer.cs">
+      <DependentUpon>MonthlyScheduler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Scheduler\Scheduler.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Scheduler\SchedulerFactory.cs" />
+    <Compile Include="Scheduler\WeeklyScheduler.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Scheduler\WeeklyScheduler.Designer.cs">
+      <DependentUpon>WeeklyScheduler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StepEditContext.cs" />
+    <Compile Include="StepEditors\ClickStepEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StepEditors\ClickStepEditor.Designer.cs">
+      <DependentUpon>ClickStepEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StepEditors\ConnectionStringEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StepEditors\ConnectionStringEditor.Designer.cs">
+      <DependentUpon>ConnectionStringEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StepEditors\DatabaseEditors\ResultMappingEditorFactory.cs" />
+    <Compile Include="StepEditors\DatabaseEditors\ScalarResultMappingEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StepEditors\DatabaseEditors\ScalarResultMappingEditor.Designer.cs">
+      <DependentUpon>ScalarResultMappingEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StepEditors\DatabaseEditors\TableResultMappingEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StepEditors\DatabaseEditors\TableResultMappingEditor.Designer.cs">
+      <DependentUpon>TableResultMappingEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StepEditors\ElementAttributeSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StepEditors\ElementAttributeSelector.Designer.cs">
+      <DependentUpon>ElementAttributeSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StepEditors\ElementStepEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StepEditors\ElementStepEditor.Designer.cs">
+      <DependentUpon>ElementStepEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StepEditors\GetValueStepEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StepEditors\GetValueStepEditor.Designer.cs">
+      <DependentUpon>GetValueStepEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StepEditors\GroupStepEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StepEditors\GroupStepEditor.Designer.cs">
+      <DependentUpon>GroupStepEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StepEditors\DatabaseStepEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StepEditors\DatabaseStepEditor.Designer.cs">
+      <DependentUpon>DatabaseStepEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StepEditors\IterationEditors\DataSetIterationEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StepEditors\IterationEditors\DataSetIterationEditor.Designer.cs">
+      <DependentUpon>DataSetIterationEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StepEditors\IterationEditors\ElementSetEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StepEditors\IterationEditors\ElementSetEditor.Designer.cs">
+      <DependentUpon>ElementSetEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StepEditors\IterationEditors\ElementSetIterationEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StepEditors\IterationEditors\ElementSetIterationEditor.Designer.cs">
+      <DependentUpon>ElementSetIterationEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StepEditors\IterationEditors\FixedIterationEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StepEditors\IterationEditors\FixedIterationEditor.Designer.cs">
+      <DependentUpon>FixedIterationEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StepEditors\IterationEditors\IterationEditorFactory.cs" />
+    <Compile Include="StepEditors\NotifyStepEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StepEditors\NotifyStepEditor.Designer.cs">
+      <DependentUpon>NotifyStepEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StepEditors\GetValueSuggestor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StepEditors\GetValueSuggestor.Designer.cs">
+      <DependentUpon>GetValueSuggestor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StepEditors\OLVOutputValueEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StepEditors\OLVOutputValueEditor.Designer.cs">
+      <DependentUpon>OLVOutputValueEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StepEditors\OLVOutputValueEditorPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StepEditors\OLVOutputValueEditorPopup.Designer.cs">
+      <DependentUpon>OLVOutputValueEditorPopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StepEditors\OutputValueEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StepEditors\OutputValueEditor.Designer.cs">
+      <DependentUpon>OutputValueEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StepEditors\SetValueStepEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StepEditors\SetValueStepEditor.Designer.cs">
+      <DependentUpon>SetValueStepEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StepEditors\StepEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StepEditors\NavigateStepEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StepEditors\NavigateStepEditor.Designer.cs">
+      <DependentUpon>NavigateStepEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StepEditors\StepEditorFactory.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SequenceRecorder.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SequenceRecorder.Designer.cs">
+      <DependentUpon>SequenceRecorder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ElementScraper.cs" />
+    <Compile Include="ValueEntry.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ValueEntry.Designer.cs">
+      <DependentUpon>ValueEntry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WebHawkAppContext.cs" />
+    <Compile Include="Wizards\Scrape\ScrapeWizard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Wizards\Scrape\ScrapeWizardName.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Wizards\Scrape\ScrapeWizardName.Designer.cs">
+      <DependentUpon>ScrapeWizardName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\Watch\WatchWizard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Wizards\Wizard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Wizards\Wizard.Designer.cs">
+      <DependentUpon>Wizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\Watch\WatchWizardDOMSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Wizards\Watch\WatchWizardDOMSelector.Designer.cs">
+      <DependentUpon>WatchWizardDOMSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\Watch\WatchWizardName.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Wizards\Watch\WatchWizardName.Designer.cs">
+      <DependentUpon>WatchWizardName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\Watch\WatchWizardNotification.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Wizards\Watch\WatchWizardNotification.Designer.cs">
+      <DependentUpon>WatchWizardNotification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\Watch\WatchWizardRules.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Wizards\Watch\WatchWizardRules.Designer.cs">
+      <DependentUpon>WatchWizardRules.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Wizards\WizardFactory.cs" />
+    <Compile Include="Wizards\WizardPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <EmbeddedResource Include="ElementIdentifierEditor.resx">
+      <DependentUpon>ElementIdentifierEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCloneSequence.resx">
+      <DependentUpon>frmCloneSequence.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmElementIdentifierEditor.resx">
+      <DependentUpon>frmElementIdentifierEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Scheduler\DailyRepeatableScheduler.resx">
+      <DependentUpon>DailyRepeatableScheduler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Scheduler\DailyScheduler.resx">
+      <DependentUpon>DailyScheduler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmScheduledTaskProperties.resx">
+      <DependentUpon>frmScheduledTaskProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSequenceProperties.resx">
+      <DependentUpon>frmSequenceProperties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSettings.resx">
+      <DependentUpon>frmSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Scheduler\HourlyScheduler.resx">
+      <DependentUpon>HourlyScheduler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Scheduler\MonthlyScheduler.resx">
+      <DependentUpon>MonthlyScheduler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Scheduler\WeeklyScheduler.resx">
+      <DependentUpon>WeeklyScheduler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SequenceRecorder.resx">
+      <DependentUpon>SequenceRecorder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStepEditor.resx">
+      <DependentUpon>frmStepEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StepEditors\ClickStepEditor.resx">
+      <DependentUpon>ClickStepEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StepEditors\ConnectionStringEditor.resx">
+      <DependentUpon>ConnectionStringEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StepEditors\DatabaseEditors\ScalarResultMappingEditor.resx">
+      <DependentUpon>ScalarResultMappingEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StepEditors\DatabaseEditors\TableResultMappingEditor.resx">
+      <DependentUpon>TableResultMappingEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StepEditors\DatabaseStepEditor.resx">
+      <DependentUpon>DatabaseStepEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StepEditors\ElementAttributeSelector.resx">
+      <DependentUpon>ElementAttributeSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StepEditors\ElementStepEditor.resx">
+      <DependentUpon>ElementStepEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StepEditors\GetValueStepEditor.resx">
+      <DependentUpon>GetValueStepEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StepEditors\GroupStepEditor.resx">
+      <DependentUpon>GroupStepEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StepEditors\IterationEditors\DataSetIterationEditor.resx">
+      <DependentUpon>DataSetIterationEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StepEditors\IterationEditors\ElementSetEditor.resx">
+      <DependentUpon>ElementSetEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StepEditors\IterationEditors\ElementSetIterationEditor.resx">
+      <DependentUpon>ElementSetIterationEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StepEditors\IterationEditors\FixedIterationEditor.resx">
+      <DependentUpon>FixedIterationEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StepEditors\NavigateStepEditor.resx">
+      <DependentUpon>NavigateStepEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StepEditors\GetValueSuggestor.resx">
+      <DependentUpon>GetValueSuggestor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StepEditors\NotifyStepEditor.resx">
+      <DependentUpon>NotifyStepEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StepEditors\OLVOutputValueEditor.resx">
+      <DependentUpon>OLVOutputValueEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StepEditors\OLVOutputValueEditorPopup.resx">
+      <DependentUpon>OLVOutputValueEditorPopup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StepEditors\OutputValueEditor.resx">
+      <DependentUpon>OutputValueEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StepEditors\SetValueStepEditor.resx">
+      <DependentUpon>SetValueStepEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ValueEntry.resx">
+      <DependentUpon>ValueEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\Scrape\ScrapeWizardName.resx">
+      <DependentUpon>ScrapeWizardName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\Wizard.resx">
+      <DependentUpon>Wizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\Watch\WatchWizardDOMSelector.resx">
+      <DependentUpon>WatchWizardDOMSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\Watch\WatchWizardName.resx">
+      <DependentUpon>WatchWizardName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\Watch\WatchWizardNotification.resx">
+      <DependentUpon>WatchWizardNotification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Wizards\Watch\WatchWizardRules.resx">
+      <DependentUpon>WatchWizardRules.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Database\WebHawk.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UBoat.Utils\UBoat.Utils.csproj">
+      <Project>{b6acdc1f-d0c7-4b8c-9672-fff5d165f8b8}</Project>
+      <Name>UBoat.Utils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UBoat.WebHawk.Controller\UBoat.WebHawk.Controller.csproj">
+      <Project>{873faa50-05e6-44a3-b269-43d236da9372}</Project>
+      <Name>UBoat.WebHawk.Controller</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icon1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GreenCircle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedCircle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\YellowCircle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StopIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pointer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DoneIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GreenArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedArrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_branch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Document.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TreeList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TreeListWithX.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Iteration.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loader.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\goldstar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MagnifyGlass.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sequence.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xsl-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xml.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\GetValueIcon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SetValueIcon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\schedule-icon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh-icon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\schedule-icon_small.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sequence_small.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database\StoredProcedures\usp_Sched_DeleteScheduledTask.sql" />
+    <Content Include="Database\StoredProcedures\usp_Sched_GetAllScheduledTasks.sql" />
+    <Content Include="Database\StoredProcedures\usp_Sched_GetScheduledTask.sql" />
+    <Content Include="Database\StoredProcedures\usp_Sched_HardDeleteScheduledTask.sql" />
+    <Content Include="Database\StoredProcedures\usp_Sched_InsertScheduledTask.sql" />
+    <Content Include="Database\StoredProcedures\usp_Sched_ScheduledTaskIdExists.sql" />
+    <Content Include="Database\StoredProcedures\usp_Sched_ScheduledTaskNameExists.sql" />
+    <Content Include="Database\StoredProcedures\usp_Sched_SetScheduledTaskNextScheduledRunTime.sql" />
+    <Content Include="Database\StoredProcedures\usp_Sched_SetScheduledTaskRunStatistics.sql" />
+    <Content Include="Database\StoredProcedures\usp_Sched_UpdateScheduledTask.sql" />
+    <Content Include="Database\StoredProcedures\usp_Seq_DeleteSequence.sql" />
+    <Content Include="Database\StoredProcedures\usp_Seq_GetAllSequences.sql" />
+    <Content Include="Database\StoredProcedures\usp_Seq_GetSequence.sql" />
+    <Content Include="Database\StoredProcedures\usp_Seq_GetSequenceDetail.sql" />
+    <Content Include="Database\StoredProcedures\usp_Seq_GetSequencePersistedData.sql" />
+    <Content Include="Database\StoredProcedures\usp_Seq_HardDeleteSequence.sql" />
+    <Content Include="Database\StoredProcedures\usp_Seq_InsertSequenceDetail.sql" />
+    <Content Include="Database\StoredProcedures\usp_Seq_SequenceIdExists.sql" />
+    <Content Include="Database\StoredProcedures\usp_Seq_SequenceNameExists.sql" />
+    <Content Include="Database\StoredProcedures\usp_Seq_SetSequencePersistedData.sql" />
+    <Content Include="Database\StoredProcedures\usp_Seq_UpdateSequenceDetail.sql" />
+    <Content Include="Database\StoredProcedures\usp_Settings_DeleteSetting.sql" />
+    <Content Include="Database\StoredProcedures\usp_Settings_GetSettingValue.sql" />
+    <Content Include="Database\StoredProcedures\usp_Settings_InsertSetting.sql" />
+    <Content Include="Database\StoredProcedures\usp_Settings_SettingNameExists.sql" />
+    <Content Include="Database\StoredProcedures\usp_Settings_UpdateSetting.sql" />
+    <None Include="Resources\CutIcon.png" />
+    <None Include="Resources\CopyIcon.png" />
+    <None Include="Resources\PasteIcon.png" />
+    <None Include="Resources\CloneIconSmall.jpg" />
+    <None Include="Resources\CloneIcon.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

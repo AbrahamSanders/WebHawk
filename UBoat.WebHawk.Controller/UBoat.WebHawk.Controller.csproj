@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{873FAA50-05E6-44A3-B269-43D236DA9372}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UBoat.WebHawk.Controller</RootNamespace>
+    <AssemblyName>UBoat.WebHawk.Controller</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.3.3.1\lib\net40\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Common.Logging.Core, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Common.Logging.Core.3.3.1\lib\net40\Common.Logging.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Quartz, Version=2.5.0.0, Culture=neutral, PublicKeyToken=f6b8c98a402cc8a4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Quartz.2.5.0\lib\net40\Quartz.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Automation\AutomationController.cs" />
+    <Compile Include="Automation\AutomationEngine.cs" />
+    <Compile Include="Automation\AutomationUtils.cs" />
+    <Compile Include="Automation\ExecutionBranch.cs" />
+    <Compile Include="Automation\ExecutionEventArgs.cs" />
+    <Compile Include="Automation\ExecutionContext.cs" />
+    <Compile Include="Automation\ExecutionStack.cs" />
+    <Compile Include="Common\ControllerBase.cs" />
+    <Compile Include="Model\Automation\ExecutionState.cs" />
+    <Compile Include="Automation\Iterators\DataSetIterator.cs" />
+    <Compile Include="Automation\Iterators\ElementSetIterator.cs" />
+    <Compile Include="Automation\Iterators\FixedIterator.cs" />
+    <Compile Include="Automation\Iterators\IIterator.cs" />
+    <Compile Include="Automation\Iterators\IObjectSetIterator.cs" />
+    <Compile Include="Automation\Iterators\Iterator.cs" />
+    <Compile Include="Automation\Iterators\ObjectSetIterator.cs" />
+    <Compile Include="Automation\SequenceAnalyzer.cs" />
+    <Compile Include="Automation\StepEventArgs.cs" />
+    <Compile Include="Automation\StepExecutors\ClickStepExecutor.cs" />
+    <Compile Include="Automation\StepExecutors\ElementStepExecutor.cs" />
+    <Compile Include="Automation\StepExecutors\GetValueStepExecutor.cs" />
+    <Compile Include="Automation\StepExecutors\GroupStepExecutor.cs" />
+    <Compile Include="Automation\StepExecutors\DatabaseStepExecutor.cs" />
+    <Compile Include="Automation\StepExecutors\IStepExecutor.cs" />
+    <Compile Include="Automation\StepExecutors\NavigateStepExecutor.cs" />
+    <Compile Include="Automation\StepExecutors\NotifyStepExecutor.cs" />
+    <Compile Include="Automation\StepExecutors\SetValueStepExecutor.cs" />
+    <Compile Include="Automation\StepExecutors\StepExecutor.cs" />
+    <Compile Include="Automation\StepExecutors\StepExecutorProvider.cs" />
+    <Compile Include="Automation\StepExecutors\StepExecutorScope.cs" />
+    <Compile Include="Conditional\BooleanExpressionEvaluator.cs" />
+    <Compile Include="Conditional\DateTimeExpressionEvaluator.cs" />
+    <Compile Include="Conditional\ExpressionEvaluatorBase.cs" />
+    <Compile Include="Conditional\ExpressionEvaluatorFactory.cs" />
+    <Compile Include="Conditional\IExpressionEvaluator.cs" />
+    <Compile Include="Conditional\NumericExpressionEvaluator.cs" />
+    <Compile Include="Conditional\StringExpressionEvaluator.cs" />
+    <Compile Include="Data\DataContext.cs" />
+    <Compile Include="Data\DataScope.cs" />
+    <Compile Include="Data\DataUtils.cs" />
+    <Compile Include="Data\ListStateVariable.cs" />
+    <Compile Include="Model\Database\InputParameterMap.cs" />
+    <Compile Include="Model\Database\OutputParameterMap.cs" />
+    <Compile Include="Model\Database\OutputParameterType.cs" />
+    <Compile Include="Model\Database\ResultMapping.cs" />
+    <Compile Include="Model\Database\ScalarResultMapping.cs" />
+    <Compile Include="Model\Database\TableResultMap.cs" />
+    <Compile Include="Model\Database\TableResultMapping.cs" />
+    <Compile Include="Model\Data\PersistenceMode.cs" />
+    <Compile Include="Model\Scheduling\MissedScheduleMode.cs" />
+    <Compile Include="Model\Scheduling\ScheduledTaskRunStatistics.cs" />
+    <Compile Include="Persistence\WebHawkDataProvider.cs" />
+    <Compile Include="Integration\SequenceTranslators\ISequenceTranslator.cs" />
+    <Compile Include="Integration\SequenceTranslators\SequenceTranslationType.cs" />
+    <Compile Include="Integration\SequenceTranslators\SequenceTranslatorFactory.cs" />
+    <Compile Include="Integration\SequenceTranslators\XSLTSequenceTranslator.cs" />
+    <Compile Include="Model\Automation\ElementType.cs" />
+    <Compile Include="Model\Automation\Iterations\DataSetIteration.cs" />
+    <Compile Include="Model\Automation\Iterations\ElementSetIteration.cs" />
+    <Compile Include="Model\Automation\Iterations\FixedIteration.cs" />
+    <Compile Include="Model\Automation\Iterations\Iteration.cs" />
+    <Compile Include="Model\Automation\Iterations\ObjectSetIteration.cs" />
+    <Compile Include="Model\Automation\SequenceDetail.cs" />
+    <Compile Include="Model\Automation\SequenceType.cs" />
+    <Compile Include="Model\Automation\Steps\ElementValueStep.cs" />
+    <Compile Include="Model\Automation\Steps\GroupStep.cs" />
+    <Compile Include="Model\Automation\Steps\DatabaseStep.cs" />
+    <Compile Include="Model\Automation\Steps\NotifyStep.cs" />
+    <Compile Include="Model\Automation\Steps\StepFailureScope.cs" />
+    <Compile Include="Model\Conditional\Conditional.cs" />
+    <Compile Include="Model\Conditional\ConditionNode.cs" />
+    <Compile Include="Model\Conditional\DataTypeExtensions.cs" />
+    <Compile Include="Model\Conditional\LogicalNode.cs" />
+    <Compile Include="Model\Data\DataType.cs" />
+    <Compile Include="Model\Automation\Steps\ClickStep.cs" />
+    <Compile Include="Model\Automation\Steps\ElementStep.cs" />
+    <Compile Include="Model\Automation\Steps\GetValueStep.cs" />
+    <Compile Include="Model\Automation\Steps\NavigateStep.cs" />
+    <Compile Include="Model\Automation\Steps\SetValueStep.cs" />
+    <Compile Include="Model\Automation\Steps\Step.cs" />
+    <Compile Include="Data\IStateVariable.cs" />
+    <Compile Include="Data\ObjectStateVariable.cs" />
+    <Compile Include="Data\StateVariable.cs" />
+    <Compile Include="Model\Data\StateVariableInfo.cs" />
+    <Compile Include="Model\Data\XMLFieldOutputMode.cs" />
+    <Compile Include="Model\Scheduling\DailyRepeatableSchedule.cs" />
+    <Compile Include="Model\Scheduling\DailySchedule.cs" />
+    <Compile Include="Model\Scheduling\DescriptionUtils.cs" />
+    <Compile Include="Model\Scheduling\HourlySchedule.cs" />
+    <Compile Include="Model\Scheduling\MonthlySchedule.cs" />
+    <Compile Include="Model\Scheduling\OneTimeSchedule.cs" />
+    <Compile Include="Model\Scheduling\Schedule.cs" />
+    <Compile Include="Model\Scheduling\ScheduledTask.cs" />
+    <Compile Include="Model\Scheduling\ScheduledTaskStatus.cs" />
+    <Compile Include="Model\Scheduling\WeeklySchedule.cs" />
+    <Compile Include="Notification\EmailNotify.cs" />
+    <Compile Include="Automation\frmAutomation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Automation\frmAutomation.Designer.cs">
+      <DependentUpon>frmAutomation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Notification\frmPopup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Notification\frmPopup.Designer.cs">
+      <DependentUpon>frmPopup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Notification\INotify.cs" />
+    <Compile Include="Model\Conditional\Comparative.cs" />
+    <Compile Include="Notification\NotifyFactory.cs" />
+    <Compile Include="Notification\PopupNotify.cs" />
+    <Compile Include="Conditional\ConditionalEngine.cs" />
+    <Compile Include="Notification\SMSNotify.cs" />
+    <Compile Include="Notification\SMSResult.cs" />
+    <Compile Include="Scheduling\ExecuteSequenceJob.cs" />
+    <Compile Include="Scheduling\ExecuteSequenceJobListener.cs" />
+    <Compile Include="Scheduling\ExecuteSequenceJobResult.cs" />
+    <Compile Include="Scheduling\Scheduler.cs" />
+    <Compile Include="Scheduling\SchedulingController.cs" />
+    <Compile Include="Scheduling\TaskEventArgs.cs" />
+    <Compile Include="Scheduling\TriggerBuilderFactory.cs" />
+    <Compile Include="Settings\SettingsController.cs" />
+    <Compile Include="Model\Notification\Notification.cs" />
+    <Compile Include="Model\Notification\NotificationType.cs" />
+    <Compile Include="Model\Conditional\ExpressionNode.cs" />
+    <Compile Include="Model\Automation\Sequence.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\WebHawkSettings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Automation\frmAutomation.resx">
+      <DependentUpon>frmAutomation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notification\frmPopup.resx">
+      <DependentUpon>frmPopup.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UBoat.Utils\UBoat.Utils.csproj">
+      <Project>{b6acdc1f-d0c7-4b8c-9672-fff5d165f8b8}</Project>
+      <Name>UBoat.Utils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="job_scheduling_data_2_0.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
