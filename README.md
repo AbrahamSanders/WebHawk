@@ -5,17 +5,13 @@ WebHawk is a general-purpose scriptless web automation tool designed to get simp
 ## How is WebHawk useful?
 There are many ways to use WebHawk. A few are listed below:
 
-- **Watch and alert**
-WebHawk can be scheduled to monitor a web page for a condition to occur and send a notification when it does.
+- **Watch and alert** - WebHawk can be scheduled to monitor a web page for a condition to occur and send a notification when it does.
 
-- **Scrape data**
-WebHawk can scrape data from web pages and export it to XML or to a database.
+- **Scrape data** - WebHawk can scrape data from web pages and export it to XML or to a database.
 
-- **Form filling**
-WebHawk can fill out forms using data pulled in from a database.
+- **Form filling** - WebHawk can fill out forms using data pulled in from a database.
 
-- **Automate navigation**
-Save time by recording navigation macros on pages which are not easily linkable.
+- **Automate navigation** - Save time by recording navigation macros on pages which are not easily linkable.
 
 - **Any combination of the above!**
 
