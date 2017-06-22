@@ -25,7 +25,7 @@ namespace UBoat.WebHawk.Controller.Automation.StepExecutors
 
         void m_Browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
-            if (e.Url != null && e.Url.ToString().ToLower() == m_Url.ToLower())
+            if (e.Url != null && e.Url == m_Context.BrowserHelper.Browser.Url)
             {
                 m_Context.BrowserHelper.Browser.DocumentCompleted -= m_Browser_DocumentCompleted;
                 zCompleteStep(StepResult.Success);
