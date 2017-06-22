@@ -1,27 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 using UBoat.WebHawk.Controller.Model.Notification;
 
 namespace UBoat.WebHawk.Controller.Notification
 {
     internal static class NotifyFactory
     {
-        public static INotify GetNotification(NotificationType notificationType)
+        public static INotify GetNotification(UBoat.WebHawk.Controller.Model.Notification.Notification notification, Control UIContext = null)
         {
-            switch (notificationType)
+            if (notification is EmailNotification)
             {
-                case NotificationType.Email:
-                    return new EmailNotify();
-                case NotificationType.SMS:
-                    return new SMSNotify();
-                case NotificationType.Popup:
-                    return new PopupNotify();
-                default:
-                    throw new NotSupportedException();
+                return new EmailNotify((EmailNotification)notification);
             }
+            if (notification is SMSNotification)
+            {
+                return new SMSNotify((SMSNotification)notification);
+            }
+            if (notification is PopupNotification)
+            {
+                return new PopupNotify((PopupNotification)notification, UIContext);
+            }
+
+            throw new NotSupportedException();
         }
     }
 }

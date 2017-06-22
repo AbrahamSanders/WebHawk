@@ -19,8 +19,8 @@ namespace UBoat.WebHawk.Controller.Automation.StepExecutors
             string message = DataUtils.ApplyStateVariablesToString(m_Step.Message, CurrentScope.DataScope, m_Step.TrimVariableValueWhitespace);
             foreach (notificationModel.Notification notification in m_Step.Notifications)
             {
-                INotify notify = NotifyFactory.GetNotification(notification.NotificationType);
-                notify.Notify(m_Context.BrowserHelper.Browser, notification.Address, message);
+                INotify notify = NotifyFactory.GetNotification(notification, m_Context.BrowserHelper.Browser);
+                notify.Send("WebHawk Notification", message);
             }
 
             zCompleteStep(StepResult.Success);

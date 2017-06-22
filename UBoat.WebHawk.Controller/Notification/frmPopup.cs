@@ -13,9 +13,11 @@ namespace UBoat.WebHawk.Controller.Notification
 {
     public partial class frmPopup : Form
     {
-        public frmPopup(string message)
+        public frmPopup(string subject, string message)
         {
             InitializeComponent();
+
+            this.Text = subject;
             rtbMessage.Text = message;
         }
 

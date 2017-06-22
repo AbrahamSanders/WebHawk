@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 namespace UBoat.WebHawk.Controller.Model.Notification
 {
     [Serializable]
-    public enum NotificationType
+    public class PopupNotification : Notification
     {
-        Email,
-        SMS,
-        Popup
+        public override string ToString()
+        {
+            return "Popup";
+        }
     }
 }

@@ -9,6 +9,6 @@ namespace UBoat.WebHawk.Controller.Notification
 {
     internal interface INotify
     {
-        void Notify(Control UIContext, string address, string message);
+        void Send(string subject, string message);
     }
 }

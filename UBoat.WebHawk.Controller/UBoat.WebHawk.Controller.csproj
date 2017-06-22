@@ -105,8 +105,12 @@
     <Compile Include="Model\Database\TableResultMap.cs" />
     <Compile Include="Model\Database\TableResultMapping.cs" />
     <Compile Include="Model\Data\PersistenceMode.cs" />
+    <Compile Include="Model\Notification\EmailNotification.cs" />
+    <Compile Include="Model\Notification\PopupNotification.cs" />
+    <Compile Include="Model\Notification\SMSNotification.cs" />
     <Compile Include="Model\Scheduling\MissedScheduleMode.cs" />
     <Compile Include="Model\Scheduling\ScheduledTaskRunStatistics.cs" />
+    <Compile Include="Notification\Notify.cs" />
     <Compile Include="Persistence\WebHawkDataProvider.cs" />
     <Compile Include="Integration\SequenceTranslators\ISequenceTranslator.cs" />
     <Compile Include="Integration\SequenceTranslators\SequenceTranslationType.cs" />
@@ -180,7 +184,6 @@
     <Compile Include="Scheduling\TriggerBuilderFactory.cs" />
     <Compile Include="Settings\SettingsController.cs" />
     <Compile Include="Model\Notification\Notification.cs" />
-    <Compile Include="Model\Notification\NotificationType.cs" />
     <Compile Include="Model\Conditional\ExpressionNode.cs" />
     <Compile Include="Model\Automation\Sequence.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
