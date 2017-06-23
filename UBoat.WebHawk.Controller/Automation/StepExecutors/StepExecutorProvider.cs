@@ -59,6 +59,10 @@ namespace UBoat.WebHawk.Controller.Automation.StepExecutors
             {
                 return new GroupStepExecutor();
             }
+            if (stepType == typeof(WaitStep))
+            {
+                return new WaitStepExecutor();
+            }
 
             throw new NotSupportedException();
         }

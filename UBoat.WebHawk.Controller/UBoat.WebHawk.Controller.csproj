@@ -63,6 +63,7 @@
     <Compile Include="Automation\ExecutionEventArgs.cs" />
     <Compile Include="Automation\ExecutionContext.cs" />
     <Compile Include="Automation\ExecutionStack.cs" />
+    <Compile Include="Automation\StepExecutors\WaitStepExecutor.cs" />
     <Compile Include="Common\ControllerBase.cs" />
     <Compile Include="Model\Automation\ExecutionState.cs" />
     <Compile Include="Automation\Iterators\DataSetIterator.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="Data\DataScope.cs" />
     <Compile Include="Data\DataUtils.cs" />
     <Compile Include="Data\ListStateVariable.cs" />
+    <Compile Include="Model\Automation\Steps\WaitStep.cs" />
     <Compile Include="Model\Database\InputParameterMap.cs" />
     <Compile Include="Model\Database\OutputParameterMap.cs" />
     <Compile Include="Model\Database\OutputParameterType.cs" />

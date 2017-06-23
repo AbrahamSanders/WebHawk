@@ -40,6 +40,10 @@ namespace UBoat.WebHawk.UI.StepEditors
             {
                 return new DatabaseStepEditor(context);
             }
+            if (context.Step is WaitStep)
+            {
+                return new WaitStepEditor(context);
+            }
 
             throw new NotSupportedException();
         }

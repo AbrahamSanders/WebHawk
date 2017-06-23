@@ -25,6 +25,14 @@ namespace UBoat.WebHawk.UI.StepEditors
         public NavigateStepEditor()
         {
             InitializeComponent();
+
+            cbWaitType.DisplayMember = "Key";
+            cbWaitType.ValueMember = "Value";
+            cbWaitType.DataSource = new BindingSource(new Dictionary<string, NavigateWaitType>()
+            {
+                { "Navigated URL Document Complete (Recommended)", NavigateWaitType.UriDocumentComplete },
+                { "Any Document Complete (Use only if step hangs)", NavigateWaitType.AnyDocumentComplete }
+            }, null);
         }
 
         public NavigateStepEditor(StepEditContext context)
@@ -38,6 +46,7 @@ namespace UBoat.WebHawk.UI.StepEditors
             base.SetContext(context);
 
             urlEditor.SetContext(StepEditContext.StateVariables, Step.URL, Step.TrimVariableValueWhitespace);
+            cbWaitType.SelectedValue = Step.WaitType;
         }
 
         public override ValidationResult PerformValidation()
@@ -52,6 +61,7 @@ namespace UBoat.WebHawk.UI.StepEditors
 
             Step.URL = this.urlEditor.Value;
             Step.TrimVariableValueWhitespace = this.urlEditor.TrimVariableValueWhitespace;
+            Step.WaitType = (NavigateWaitType)cbWaitType.SelectedValue;
         }
     }
 }

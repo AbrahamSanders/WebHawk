@@ -13,19 +13,18 @@ namespace UBoat.WebHawk.Controller.Automation.StepExecutors
 {
     internal class NavigateStepExecutor : StepExecutor<NavigateStep>
     {
-        private string m_Url;
-
         protected override void zExecuteStep()
         {
             m_Context.BrowserHelper.Browser.DocumentCompleted += m_Browser_DocumentCompleted;
 
-            m_Url = DataUtils.ApplyStateVariablesToString(m_Step.URL, CurrentScope.DataScope, true);
-            m_Context.BrowserHelper.Browser.Navigate(m_Url);
+            string url = DataUtils.ApplyStateVariablesToString(m_Step.URL, CurrentScope.DataScope, true);
+            m_Context.BrowserHelper.Browser.Navigate(url);
         }
 
         void m_Browser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
-            if (e.Url != null && e.Url == m_Context.BrowserHelper.Browser.Url)
+            if (m_Step.WaitType == NavigateWaitType.AnyDocumentComplete 
+                || (e.Url != null && e.Url == m_Context.BrowserHelper.Browser.Url))
             {
                 m_Context.BrowserHelper.Browser.DocumentCompleted -= m_Browser_DocumentCompleted;
                 zCompleteStep(StepResult.Success);

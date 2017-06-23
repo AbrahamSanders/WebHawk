@@ -521,7 +521,12 @@ namespace UBoat.WebHawk.UI
                 tabControl1.TabPages.RemoveAt(tabIndex);
                 page.Dispose();
 
-                tabIndex = tabIndex < tabControl1.TabCount ? tabIndex : tabControl1.TabCount - 1;
+                tabIndex = tabIndex < tabControl1.TabCount 
+                    ? tabIndex 
+                    : tabControl1.TabCount > 2 
+                        ? tabControl1.TabCount - 1 
+                        : 0;
+
                 tabControl1.SelectedIndex = tabIndex;
                 return true;
             }

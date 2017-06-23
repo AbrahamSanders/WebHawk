@@ -302,6 +302,12 @@
       <DependentUpon>SequenceRecorder.cs</DependentUpon>
     </Compile>
     <Compile Include="ElementScraper.cs" />
+    <Compile Include="StepEditors\WaitStepEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StepEditors\WaitStepEditor.Designer.cs">
+      <DependentUpon>WaitStepEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="ValueEntry.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -475,6 +481,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StepEditors\SetValueStepEditor.resx">
       <DependentUpon>SetValueStepEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StepEditors\WaitStepEditor.resx">
+      <DependentUpon>WaitStepEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ValueEntry.resx">
       <DependentUpon>ValueEntry.cs</DependentUpon>
