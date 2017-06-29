@@ -283,6 +283,10 @@ namespace UBoat.WebHawk.Controller.Automation
                     m_StepExecutorProvider.Dispose();
                     m_StepExecutorProvider = null;
                 }
+                m_Context.DataContext.Clear();
+                m_Context.ExecutionStack.Dispose();
+                m_Sequence = null;
+
                 m_Disposed = true;
             }
         }

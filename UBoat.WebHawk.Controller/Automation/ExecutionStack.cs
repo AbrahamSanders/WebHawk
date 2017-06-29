@@ -8,7 +8,7 @@ using UBoat.WebHawk.Controller.Automation.Iterators;
 
 namespace UBoat.WebHawk.Controller.Automation
 {
-    internal class ExecutionStack
+    internal class ExecutionStack : IDisposable
     {
         private List<ExecutionBranch> m_Branches;
         private int m_CurrentPosition;
@@ -61,7 +61,7 @@ namespace UBoat.WebHawk.Controller.Automation
                 throw new InvalidOperationException("Cannot set sequence without any steps.");
             }
 
-            m_Branches.Clear();
+            zClear(false);
             m_Branches.Add(new ExecutionBranch(sequence));
             this.Reset();
         }
@@ -101,10 +101,7 @@ namespace UBoat.WebHawk.Controller.Automation
         {
             m_BreakBranch = false;
             m_SkipIteration = false;
-            while (m_Branches.Count > 1)
-            {
-                m_Branches.RemoveAt(m_Branches.Count - 1);
-            }
+            zClear(true);
             m_CurrentBranch = m_Branches[0];
             m_CurrentBranch.Reset();
             m_CurrentPosition = 0;
@@ -131,7 +128,8 @@ namespace UBoat.WebHawk.Controller.Automation
                     return false;
                 }
                 m_CurrentBranch.Steps = null;
-                m_Branches.RemoveAt(m_Branches.Count - 1);
+                m_CurrentBranch.Dispose();
+                m_Branches.Remove(m_CurrentBranch);
                 m_CurrentBranch = m_Branches[m_Branches.Count - 1];
             }
             m_CurrentPosition++;
@@ -179,11 +177,38 @@ namespace UBoat.WebHawk.Controller.Automation
             return activeIterators;
         }
 
+        public void Dispose()
+        {
+            zClear(false);
+        }
+
+        private void zClear(bool forReset)
+        {
+            int numberOfBranchesToLeave = forReset ? 1 : 0;
+            while (m_Branches.Count > numberOfBranchesToLeave)
+            {
+                ExecutionBranch branch = m_Branches[m_Branches.Count - 1];
+                branch.Dispose();
+                m_Branches.Remove(branch);
+            }
+            m_CurrentBranch = null;
+            zClearPendingBranch();
+        }
+
+        private void zClearPendingBranch()
+        {
+            if (m_PendingBranch != null)
+            {
+                m_PendingBranch.Dispose();
+                m_PendingBranch = null;
+            }
+        }
+
         private void zCheckBreakOrSkip()
         {
             if (m_BreakBranch || m_SkipIteration)
             {
-                m_PendingBranch = null;
+                zClearPendingBranch();
                 m_CurrentPosition = (m_CurrentPosition - (m_CurrentBranch.CurrentPosition + 1)) + m_CurrentBranch.RecursiveStepCount();
                 m_CurrentBranch.EndBranch();
                 if (m_BreakBranch)

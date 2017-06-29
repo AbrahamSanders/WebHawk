@@ -19,6 +19,15 @@ namespace UBoat.WebHawk.Controller.Automation.StepExecutors
 {
     internal class GroupStepExecutor : StepExecutor<GroupStep>
     {
+        protected override bool CanSkipConditionCheck
+        {
+            get
+            {
+                return m_Step.Iteration is ConditionalIteration
+                    && ((ConditionalIteration)m_Step.Iteration).SkipInitialConditionCheck;
+            }
+        }
+
         protected override void zExecuteStep()
         {
             if (!zCreateIterator(m_Step.Iteration))
@@ -32,6 +41,11 @@ namespace UBoat.WebHawk.Controller.Automation.StepExecutors
             if (iteration is FixedIteration)
             {
                 zCreateFixedIterator((FixedIteration)iteration);
+                return true;
+            }
+            if (iteration is ConditionalIteration)
+            {
+                zCreateConditionalIterator((ConditionalIteration)iteration);
                 return true;
             }
             if (iteration is ElementSetIteration)
@@ -52,6 +66,17 @@ namespace UBoat.WebHawk.Controller.Automation.StepExecutors
         private void zCreateFixedIterator(FixedIteration iteration)
         {
             FixedIterator iterator = new FixedIterator(iteration);
+            zCompleteGroupStep(iterator);
+        }
+
+        #endregion
+
+        #region ConditionalIteration
+
+        private void zCreateConditionalIterator(ConditionalIteration iteration)
+        {
+            ConditionalIterator iterator = new ConditionalIterator(iteration, m_Context, CurrentScope.DataScope.Clone());
+            iterator.SetCondition(m_Step.Condition);
             zCompleteGroupStep(iterator);
         }
 

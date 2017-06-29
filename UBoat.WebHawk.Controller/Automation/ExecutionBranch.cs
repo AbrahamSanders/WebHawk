@@ -8,7 +8,7 @@ using UBoat.WebHawk.Controller.Automation.Iterators;
 
 namespace UBoat.WebHawk.Controller.Automation
 {
-    internal class ExecutionBranch
+    internal class ExecutionBranch : IDisposable
     {
         internal struct MoveInfo
         {
@@ -97,12 +97,21 @@ namespace UBoat.WebHawk.Controller.Automation
 
         public void RemoveIterator()
         {
-            m_IterationContext = null;
+            if (m_IterationContext != null)
+            {
+                m_IterationContext.Dispose();
+                m_IterationContext = null;
+            }
         }
 
         public int RecursiveStepCount()
         {
             return AutomationUtils.RecursiveStepCount(this.Steps);
+        }
+
+        public void Dispose()
+        {
+            RemoveIterator();
         }
     }
 }

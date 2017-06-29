@@ -37,6 +37,7 @@ namespace UBoat.WebHawk.UI.StepEditors
             {
                 { "None", null },
                 { "Fixed Iteration", typeof(FixedIteration) },
+                { "Conditional Iteration", typeof(ConditionalIteration) },
                 { "Element Set Iteration", typeof(ElementSetIteration) },
                 { "Data Set Iteration", typeof(DataSetIteration) }
             }, null);
@@ -72,6 +73,10 @@ namespace UBoat.WebHawk.UI.StepEditors
                 {
                     Iterations = 1
                 };
+            }
+            if (selectedItem == typeof(ConditionalIteration) && !(m_Iteration is ConditionalIteration))
+            {
+                m_Iteration = new ConditionalIteration();
             }
             if (selectedItem == typeof(ElementSetIteration) && !(m_Iteration is ElementSetIteration))
             {

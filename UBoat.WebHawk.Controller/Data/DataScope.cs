@@ -70,6 +70,14 @@ namespace UBoat.WebHawk.Controller.Data
             }
         }
 
+        public DataScope Clone()
+        {
+            DataScope clone = new DataScope();
+            clone.m_CurrentScopeName = m_CurrentScopeName;
+            clone.m_StateVariables = new Dictionary<string, Dictionary<string, IStateVariable>>(m_StateVariables);
+            return clone;
+        }
+
         public void Dispose()
         {
             //Clear state variable collection, otherwise GC will pick this object up when hell freezes over.

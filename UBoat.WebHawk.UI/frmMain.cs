@@ -216,12 +216,17 @@ namespace UBoat.WebHawk.UI
             //are not aware the sequence itself, only the sequence steps.
             try
             {
-                TabPage page = recorder.Parent as TabPage;
-                if (page != null)
-                {
-                    Sequence sequence = (Sequence)page.Tag;
-                    Dictionary<string, IStateVariable> persistedData = WebHawkAppContext.AutomationController.GetSequencePersistedData(sequence.SequenceId);
-                    recorder.AutomationEngine.DataContext.LoadPersistedVariables(persistedData);
+                //Only load persisted state variables if the sequence is executing from the beginning
+                //to avoid messing up data conditions for resumed executions.
+                if (recorder.AutomationEngine.CurrentPosition == 1)
+                { 
+                    TabPage page = recorder.Parent as TabPage;
+                    if (page != null)
+                    {
+                        Sequence sequence = (Sequence)page.Tag;
+                        Dictionary<string, IStateVariable> persistedData = WebHawkAppContext.AutomationController.GetSequencePersistedData(sequence.SequenceId);
+                        recorder.AutomationEngine.DataContext.LoadPersistedVariables(persistedData);
+                    }
                 }
             }
             catch (Exception ex)

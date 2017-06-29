@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UBoat.WebHawk.Controller.Automation.Iterators
 {
-    internal interface IIterator
+    internal interface IIterator : IDisposable
     {
         void Iterate();
         bool CanIterate { get; }

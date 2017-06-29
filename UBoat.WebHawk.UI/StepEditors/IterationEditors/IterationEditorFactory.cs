@@ -15,6 +15,10 @@ namespace UBoat.WebHawk.UI.StepEditors.IterationEditors
             {
                 return new FixedIterationEditor(context, (FixedIteration)iteration);
             }
+            if (iteration is ConditionalIteration)
+            {
+                return new ConditionalIterationEditor(context, (ConditionalIteration)iteration);
+            }
             if (iteration is ElementSetIteration)
             {
                 return new ElementSetIterationEditor(context, (ElementSetIteration)iteration);

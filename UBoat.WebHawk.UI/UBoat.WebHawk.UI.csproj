@@ -203,6 +203,12 @@
     <Compile Include="StepEditors\DatabaseStepEditor.Designer.cs">
       <DependentUpon>DatabaseStepEditor.cs</DependentUpon>
     </Compile>
+    <Compile Include="StepEditors\IterationEditors\ConditionalIterationEditor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="StepEditors\IterationEditors\ConditionalIterationEditor.Designer.cs">
+      <DependentUpon>ConditionalIterationEditor.cs</DependentUpon>
+    </Compile>
     <Compile Include="StepEditors\IterationEditors\DataSetIterationEditor.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -439,6 +445,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StepEditors\GroupStepEditor.resx">
       <DependentUpon>GroupStepEditor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StepEditors\IterationEditors\ConditionalIterationEditor.resx">
+      <DependentUpon>ConditionalIterationEditor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StepEditors\IterationEditors\DataSetIterationEditor.resx">
       <DependentUpon>DataSetIterationEditor.cs</DependentUpon>

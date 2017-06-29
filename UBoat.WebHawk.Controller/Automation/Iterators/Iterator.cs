@@ -38,6 +38,11 @@ namespace UBoat.WebHawk.Controller.Automation.Iterators
             }
         }
 
+        public virtual void Dispose()
+        {
+            //Override me if you have any disposable resources!
+        }
+
         protected abstract bool zCanIterate();
     }
 }

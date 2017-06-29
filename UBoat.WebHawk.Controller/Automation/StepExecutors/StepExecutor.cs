@@ -23,6 +23,14 @@ namespace UBoat.WebHawk.Controller.Automation.StepExecutors
 
         protected StepExecutorScope CurrentScope { get; private set; }
 
+        protected virtual bool CanSkipConditionCheck
+        {
+            get
+            {
+                return false;
+            }
+        }
+
         protected StepExecutor()
         {
             m_StepWaitHandle = new AutoResetEvent(false);
@@ -37,7 +45,7 @@ namespace UBoat.WebHawk.Controller.Automation.StepExecutors
 
             try
             {
-                if (m_Context.ConditionalEngine.CheckCondition(m_Step.Condition, CurrentScope.DataScope))
+                if (this.CanSkipConditionCheck || m_Context.ConditionalEngine.CheckCondition(m_Step.Condition, CurrentScope.DataScope))
                 {
                     zExecuteStep();
                 }
